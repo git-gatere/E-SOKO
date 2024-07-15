@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/login', {
+      const response = await fetch('http://127.0.0.1:5000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ const Login = () => {
       if (response.ok) {
         // Store the access token in local storage or a cookie
         localStorage.setItem('accessToken', data.access_token);
-        navigate('/home');
+        navigate('/');
       } else {
         alert(data.message);
       }
